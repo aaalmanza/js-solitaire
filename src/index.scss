@@ -16,13 +16,13 @@ body {
 }
 
 body {
-    background: #008080;
+    background: #54aaa9;
     display: block !important;
 }
 
 .solitaire {
     width: 660px;
-    background-color: green;
+    background-color: #00aa54;
     height: 440px;
     position: relative;
 }
@@ -104,7 +104,7 @@ body {
         border: 1px dotted;
         border-radius: 4px;
         cursor: pointer;
-        background-image: radial-gradient(green 30%,white 30.1%,white 40%,green 40.1%, green 100%);
+        background-image: radial-gradient(#00aa54 30%,white 30.1%,white 40%,#00aa54 40.1%, #00aa54 100%);
         background-size: 90px 90px;
         background-position: center;
         background-repeat: no-repeat;
@@ -230,7 +230,8 @@ body {
     margin: 20px auto;
     width: 671px;
     color: #000;
-    font-family: 'Arial',sans-serif;
+    font-family: 'MyCustomFont';
+    src: url('fonts/WindowsRegular.ttf') format('truetype');
     background: #c0c0c0;
     border: 1px solid;
     border-top-color: #dfdfdf;
@@ -250,7 +251,7 @@ body {
         margin: 2px 2px 0;
         padding: 1px 2px;
         color: #fff;
-        background: linear-gradient(to right, #000080, #1084d0);
+        background: #0100aa;
         font-weight: bold;
         font-size: 12px;
         line-height: 16px;
