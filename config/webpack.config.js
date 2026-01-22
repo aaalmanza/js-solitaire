@@ -10,20 +10,22 @@ const config = env === 'development'
 
 const { inject } = config;
 
+const fs = require('fs');
+const path = require('path');
+
 const plugins = [
+    // Copy root index.html to build
     new CopyWebpackPlugin([{
-        from: paths.root,
-        to: paths.build,
-        transform: (content, path) => {
+        from: path.join(paths.root, 'index.html'),
+        to: path.join(paths.build, 'index.html'),
+        transform: (content) => {
             let changed = content.toString();
             for (const key in inject) {
                 changed = changed.replace(`%${key}%`, inject[key]);
             }
             return changed;
         }
-    }], {
-        ignore: ['*.png', '*.jpg', '*.jpeg', '*.gif', '*.js', '*.ico', '*.scss', 'src/**', 'config/**', 'scripts/**', 'node_modules/**']
-    }),
+    }]),
     new CopyWebpackPlugin([{
         from: '**/*',
         transform: (content, path) => {
