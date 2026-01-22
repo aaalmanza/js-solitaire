@@ -12,6 +12,19 @@ const { inject } = config;
 
 const plugins = [
     new CopyWebpackPlugin([{
+        from: paths.root,
+        to: paths.build,
+        transform: (content, path) => {
+            let changed = content.toString();
+            for (const key in inject) {
+                changed = changed.replace(`%${key}%`, inject[key]);
+            }
+            return changed;
+        }
+    }], {
+        ignore: ['*.png', '*.jpg', '*.jpeg', '*.gif', '*.js', '*.ico', '*.scss', 'src/**', 'config/**', 'scripts/**', 'node_modules/**']
+    }),
+    new CopyWebpackPlugin([{
         from: '**/*',
         transform: (content, path) => {
             let changed = content.toString();
